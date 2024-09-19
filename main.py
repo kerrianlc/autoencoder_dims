@@ -1,7 +1,8 @@
 from dataload.data_loader import Loader
 from model import AutoEncoder
+from plot import plot_loss, plot_reconstruction
 import torch
-import matplotlib.pyplot as plt
+
 
 model = AutoEncoder()
 loader_inst = Loader(transform="")
@@ -29,5 +30,5 @@ for epoch in range(epochs):
     outputs.append((epochs, image, reconstructed))
 
 
-plt.plot([tensor.detach().numpy() for tensor in losses])
-plt.show()
+# plot_loss(losses)
+plot_reconstruction(model)
