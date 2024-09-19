@@ -3,11 +3,12 @@ from model import AutoEncoder
 import torch
 
 model = AutoEncoder()
-loader = Loader()
+loader_inst = Loader()
 model = AutoEncoder()
 mse_loss = torch.nn.MSELoss()
 
 optimizer = torch.optim.Adam(model.parameters(), lr=1e-3, weight_decay=1e-8)
+loader = loader_inst.loader
 epochs = 20
 
 outputs = []
