@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-
+import torch
 from dataload.data_loader import Loader
 
 
@@ -21,5 +21,5 @@ def plot_reconstruction(model):
         reco = model.encoder(item).detach().numpy()
         reco = model.forward(item).detach().numpy()
 
-        plt.imshow(reco.reshape(-1, 28, 28)[0])
+        plt.imshow(torch.Tensor(reco.reshape(-1, 28, 28)[0]) - image[0, 0])
         plt.show()
